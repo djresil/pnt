@@ -10,19 +10,20 @@ import java.util.List;
 
 
 public class SuperMercBarrio {
-   private List<Producto> productos = new ArrayList<>();
-
-    public SuperMercBarrio() {
+   private static List<Producto> productos = new ArrayList<>();
+   
+    public static void superMercBarrio() {
 
 
         agregarProductos();
         mostrarLista();
         System.out.println("=============================");
-        System.out.println(masCaro());
-        System.out.println(masBarato());
+
+        menosEconomico();
+        masEconomico();
 
     }
-    public void  agregarProductos(){
+    public static void  agregarProductos(){
         Producto bebida = new Bebida("Coca-Cola Zero", 1.5, 20);
         Producto bebida2 = new Bebida("Coca-Cola", 1.5, 18);
         Producto shampoo = new AseoUsoPersonal("Shampoo Sedal", 500, 19);
@@ -34,7 +35,7 @@ public class SuperMercBarrio {
         productos.add(fruta);
 
     }
-    public void mostrarLista(){
+    public static void mostrarLista(){
         for (Producto producto : productos) {
             System.out.println(producto.toString());
 
@@ -42,7 +43,7 @@ public class SuperMercBarrio {
         }
     }
 
-    public String masCaro() {
+    public static String masCaro() {
         Producto preciMax;
         preciMax = productos.get(0);
         for(Producto producto: productos){
@@ -54,8 +55,20 @@ public class SuperMercBarrio {
         return "Producto más caro: "+ preciMax.getNombre();
     }
 
+    public static void menosEconomico(){
+        productos.sort(Producto::compareTo);
 
-    public String masBarato() {
+        System.out.println( "Producto más caro: " + productos.get(productos.size()-1).getNombre());
+    }
+
+    public static void masEconomico(){
+        productos.sort(Producto::compareTo);
+
+        System.out.println( "Producto más barato: " + productos.get(0).getNombre());
+    }
+
+
+    public static void masBarato() {
        Producto precioMin;
         precioMin = productos.get(0);
         for(Producto producto: productos){
@@ -63,8 +76,7 @@ public class SuperMercBarrio {
                 precioMin = producto;
             }
         }
-
-        return "Producto más barato: "+ precioMin.getNombre();
+        System.out.println("Producto más barato: "+ precioMin.getNombre());
     }
 
 }
