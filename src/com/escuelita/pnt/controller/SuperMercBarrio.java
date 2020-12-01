@@ -18,9 +18,9 @@ public class SuperMercBarrio {
         agregarProductos();
         mostrarLista();
         System.out.println("=============================");
+        masBarato();
+        masCaro();
 
-        menosEconomico();
-        masEconomico();
 
     }
     public static void  agregarProductos(){
@@ -43,41 +43,22 @@ public class SuperMercBarrio {
         }
     }
 
-    public static String masCaro() {
-        Producto preciMax;
-        preciMax = productos.get(0);
-        for(Producto producto: productos){
-            if (producto.compareTo(preciMax)>0){
-                preciMax = producto;
-            }
-        }
 
-        return "Producto más caro: "+ preciMax.getNombre();
-    }
 
-    public static void menosEconomico(){
+    public static void masCaro(){
         productos.sort(Producto::compareTo);
 
         System.out.println( "Producto más caro: " + productos.get(productos.size()-1).getNombre());
     }
 
-    public static void masEconomico(){
+    public static void masBarato(){
         productos.sort(Producto::compareTo);
 
         System.out.println( "Producto más barato: " + productos.get(0).getNombre());
     }
 
 
-    public static void masBarato() {
-       Producto precioMin;
-        precioMin = productos.get(0);
-        for(Producto producto: productos){
-            if (producto.compareTo(precioMin)<0){
-                precioMin = producto;
-            }
-        }
-        System.out.println("Producto más barato: "+ precioMin.getNombre());
-    }
+
 
 }
 

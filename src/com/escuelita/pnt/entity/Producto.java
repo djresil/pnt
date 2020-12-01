@@ -48,7 +48,7 @@ public class Producto implements Comparable<Producto> {
         this.precio = precio;
     }
 
-    @Override
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -58,7 +58,7 @@ public class Producto implements Comparable<Producto> {
                 Objects.equals(nombre, producto.nombre);
     }
 
-    @Override
+
     public int hashCode() {
         return Objects.hash(nombre, presentación, precio);
     }
