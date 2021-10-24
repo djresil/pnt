@@ -10,8 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        cargarDatos();
-        mostrarlista();
+      iniciarApp();
+       
 
     }
 
@@ -29,7 +29,8 @@ public class Main {
 
     }
 
-    public static void mostrarlista(){
+    public static void iniciarApp(){
+        cargarDatos();
         Producto p = new Producto();
         p.mostrarLista();
         System.out.println("=============================");
